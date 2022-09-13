@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+
+        body{
+            margin-top: 10%;
+            margin-left: 40%;
+            margin-right: 40%;     
+        }
+        button{
+            position: relative;
+            left: 35%;
+            height: 40px;
+            width: 90px;
+            top: 20px;
+        }
+        #monto{            
+            position: relative;
+            left: 20%;
+            height: 10px;
+            width: 150px;
+        }
+        h1{
+            text-align: center;
+        }
+
+    </style>    
+    <script>
+        
+        function calculo() {
+            monto = parseInt(document.getElementById("monto").value);
+           
+            var opciones = document.getElementsByName("eleccion");
+
+            if (opciones[1].checked) {
+                resultado = monto / 1.05
+                alert("El monto en Dolares es : " + Math.round(resultado))
+            } else {
+                resultado = monto * 1.05
+                alert("El monto en Euros es : " + Math.round(resultado))
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <h1>CASA DE CAMBIO</h1>
+    <form>
+        <hr>Selecionar moneda a enviar :</hr></br>
+        <input type="radio" name="eleccion" value="opcion1" checked onclick="cotizar()">Dolares
+        <input type="radio" name="eleccion" value="opcion2" onclick="cotizar()">Euros<br/>
+        <hr>Ingrese monto : </hr></br>    
+        <input type = "text" id="monto">
+    </form>
+    <button type="text" onclick="calculo()">Cotizar</button>
+    
+    
+</body>
+</html>
